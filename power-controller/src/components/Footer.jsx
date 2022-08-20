@@ -3,7 +3,7 @@ import React from "react";
 export const Footer = () => {
   return (
     <div className="footer">
-      <small>Brought to you by jollibee@2022</small>
+      <small>© 2016 University of San Jose - Recoletos</small>
     </div>
   );
 };

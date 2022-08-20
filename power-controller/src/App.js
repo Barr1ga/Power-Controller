@@ -14,97 +14,89 @@ function App() {
   // active
   // warning
   // error
-  const lab1 = {
-    name: "Laboratory 1",
-    circuits: [
-      {
-        label: "Circuit #1",
-        description: "This is a circuit description.",
-        status: "error",
-        switch: true,
-      },
-      {
-        label: "Circuit #2",
-        description: "This is a circuit description.",
-        status: "error",
-        switch: false,
-      },
-      {
-        label: "Circuit #3",
-        description: "This is a circuit description.",
-        status: "error",
-        switch: false,
-      },
-      {
-        label: "Circuit #4",
-        description: "This is a circuit description.",
-        status: "warning",
-        switch: true,
-      },
-      {
-        label: "Circuit #5",
-        description: "This is a circuit description.",
-        status: "active",
-        switch: true,
-      },
-    ],
-  };
-
-  const lab2 = {
-    name: "Laboratory 2",
-    circuits: [
-      {
-        label: "Circuit #1",
-        description: "This is a circuit description.",
-        status: "active",
-        switch: true,
-      },
-      {
-        label: "Circuit #2",
-        description: "This is a circuit description.",
-        status: "error",
-        switch: false,
-      },
-      {
-        label: "Circuit #3",
-        description: "This is a circuit description.",
-        status: "active",
-        switch: true,
-      },
-      {
-        label: "Circuit #4",
-        description: "This is a circuit description.",
-        status: "error",
-        switch: false,
-      },
-      {
-        label: "Circuit #6",
-        description: "This is a circuit description.",
-        status: "warning",
-        switch: true,
-      },
-      {
-        label: "Circuit #7",
-        description: "This is a circuit description.",
-        status: "active",
-        switch: true,
-      },
-      {
-        label: "Circuit #8",
-        description: "This is a circuit description.",
-        status: "active",
-        switch: true,
-      },
-    ],
-  };
+  const laboratories = [
+    {
+      name: "Laboratory 1",
+      circuits: [
+        {
+          label: "Circuit #1",
+          description: "This is a circuit description.",
+          status: "error",
+          switch: true,
+        },
+        {
+          label: "Circuit #2",
+          description: "This is a circuit description.",
+          status: "error",
+          switch: false,
+        },
+        {
+          label: "Circuit #3",
+          description: "This is a circuit description.",
+          status: "error",
+          switch: false,
+        },
+        {
+          label: "Circuit #4",
+          description: "This is a circuit description.",
+          status: "warning",
+          switch: true,
+        },
+        {
+          label: "Circuit #5",
+          description: "This is a circuit description.",
+          status: "active",
+          switch: true,
+        },
+      ],
+    },
+    {
+      name: "Laboratory 2",
+      circuits: [
+        {
+          label: "Circuit #1",
+          description: "This is a circuit description.",
+          status: "active",
+          switch: true,
+        },
+        {
+          label: "Circuit #2",
+          description: "This is a circuit description.",
+          status: "error",
+          switch: false,
+        },
+        {
+          label: "Circuit #3",
+          description: "This is a circuit description.",
+          status: "active",
+          switch: true,
+        },
+        {
+          label: "Circuit #4",
+          description: "This is a circuit description.",
+          status: "error",
+          switch: false,
+        },
+        {
+          label: "Circuit #5",
+          description: "This is a circuit description.",
+          status: "warning",
+          switch: true,
+        },
+      ],
+    },
+  ];
 
   return (
     <div className="App">
       <Header></Header>
-      <div className="board-container gap-20">
-        <Board lab={lab1}></Board>
-        <Board lab={lab2}></Board>
-      </div>
+      <body>
+        <div className="board-container gap-20">
+          {laboratories.map((laboratory) => (
+            <Board lab={laboratory}></Board>
+          ))}
+        </div>
+      </body>
       <Footer></Footer>
     </div>
   );
