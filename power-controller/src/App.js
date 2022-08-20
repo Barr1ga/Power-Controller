@@ -20,7 +20,7 @@ function App() {
       {
         label: "Circuit #1",
         description: "This is a circuit description.",
-        status: "active",
+        status: "error",
         switch: true,
       },
       {

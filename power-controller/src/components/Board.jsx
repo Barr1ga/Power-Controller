@@ -4,12 +4,18 @@ import { FiEyeOff, FiEye } from "react-icons/fi";
 
 export const Board = ({ lab }) => {
   const { circuits, name } = lab;
-  const [circuit1, setCircuit1] = useState(false);
   const [showBoard, setShowBoard] = useState(true);
+  const [switches, setSwitches] = useState(
+    circuits.map((circuit) => circuit.switch)
+  );
 
-  const handleCircuit1Change = (e) => {
-    setCircuit1((prev) => !prev);
-    console.log(circuit1);
+  console.log(switches);
+
+  const handleCircuitChange = (idx) => {
+    const tempData = switches;
+    tempData[idx] = !tempData[idx];
+    setSwitches(tempData);
+    console.log(switches);
   };
 
   const handleShowBoard = (e) => {
@@ -22,11 +28,12 @@ export const Board = ({ lab }) => {
     }
   };
 
+  console.log(showBoard);
   return (
     <div className="board" onClick={handleShowBoardTrue}>
       <div className="container standard-stack gap-5">
         <div className="board-header">
-          <h3>Lab - 1</h3>
+          <h3>{name}</h3>
           {showBoard ? (
             <FiEyeOff onClick={handleShowBoard}></FiEyeOff>
           ) : (
@@ -74,7 +81,7 @@ export const Board = ({ lab }) => {
                       <input
                         type="checkbox"
                         defaultChecked={circuit.switch}
-                        onChange={handleCircuit1Change}
+                        onChange={() => handleCircuitChange(idx)}
                       />
                       <i></i>
                     </label>
